@@ -1,38 +1,136 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #153041;
+    display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container .imgBox {
+    position: relative;
+    width: 450px;
+    height: 100%;
+    background: url(../src/img/sfondo-nuovo-anno.jpg);
+    background-size: cover;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container  .countdownBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: calc(100% - 450px);
 }
 
-.App-link {
-  color: #61dafb;
+.container .countdownBox h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    color: #fff;
+    letter-spacing: 4px;
+    font-weight: 500;
+    line-height: 4em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container .countdownBox h2 span {
+    font-size: 6em;
+    font-weight: 700;
+}
+
+.container .countdownBox h2 span i {
+    font-style: initial;
+    color: yellowgreen;
+}
+
+.container .countdownBox .countdown {
+    margin-top: 30px;
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .countdownBox .countdown div {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 2.5em;
+    font-weight: 500;
+    margin: 0 15px;
+    margin-top: -25px;
+}
+
+.container .countdownBox .countdown div:before {
+    content: 'text';
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    color: #fff;
+    font-size: 0.35em;
+    font-weight: 500;
+    line-height: 35px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.container .countdownBox .countdown div#day:before {
+    content: 'days';
+}
+
+.container .countdownBox .countdown div#hour:before {
+    content: 'hours';
+}
+
+.container .countdownBox .countdown div#minutes:before {
+    content: 'minutes';
+}
+
+.container .countdownBox .countdown div#seconds:before {
+    content: 'seconds';
+}
+
+.container .countdownBox .countdown div#seconds,
+.container .countdownBox .countdown div#seconds:before {
+    color: yellowgreen;
+}
+
+/* responsive  */
+@media (max-width: 991px) {
+
+    .container .imgBox {
+        display: none;
+    }
+
+    .container .countdownBox {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .container .countdownBox h2 {
+        font-size: 1.1em;
+    }
+
+    .container .countdownBox .countdown {
+        height: 100px;
+    }
+
+    .container .countdownBox .countdown div {
+        width: 80px;
+        font-size: 2em;
+        margin: 0;
+        margin-top: -25px;
+    }
 }
